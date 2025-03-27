@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Barre de progression -->
+    <ProgressBar
+        android:id="@+id/barreDeProgression"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"/>
+
+    <!-- Texte de chargement -->
+    <TextView
+        android:id="@+id/texteChargement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chargement des DVDs..."
+        android:visibility="gone"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"/>
+
+    <!-- Liste des DVDs -->
+    <ListView
+        android:id="@+id/listeDvds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+</LinearLayout>
