@@ -57,11 +57,11 @@ public class AfficherPanierActivity extends AppCompatActivity {
             Log.d("PanierDebug", "Nombre de films dans le panier : " + filmsDansPanier.size());
             Log.d("PanierDebug", "Contenu du panier : " + filmsDansPanier.toString());
 
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                    android.R.layout.simple_list_item_1, filmsDansPanier);
+            PanierAdapter adapter = new PanierAdapter(this, filmsDansPanier);
             listePanierView.setAdapter(adapter);
         }
     }
+
 
     private void validerPanierFinal() {
         Log.d("PanierDebug", "Validation du panier déclenchée");

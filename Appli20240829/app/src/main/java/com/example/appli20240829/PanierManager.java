@@ -26,6 +26,10 @@ public class PanierManager {
         return filmsDansPanier;
     }
 
+    public void retirerFilmDuPanier(String film) {
+        filmsDansPanier.remove(film);
+    }
+
     public void viderPanier() {
         filmsDansPanier.clear();
     }
