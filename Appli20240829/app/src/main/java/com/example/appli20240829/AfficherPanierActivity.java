@@ -100,13 +100,15 @@ public class AfficherPanierActivity extends AppCompatActivity {
                         int responseCode = conn.getResponseCode();
                         if (responseCode == HttpURLConnection.HTTP_OK) {
                             Log.d("PanierDebug", "DVD " + inventoryId + " loué avec succès !");
+                            runOnUiThread(() -> Toast.makeText(AfficherPanierActivity.this, "DVD " + " loué avec succès !", Toast.LENGTH_SHORT).show());
                         } else if (responseCode == HttpURLConnection.HTTP_CONFLICT) {
-                            Log.e("PanierDebug", "DVD " + inventoryId + " déjà loué (409 Conflict).");
-                            runOnUiThread(() -> Toast.makeText(AfficherPanierActivity.this, "Le DVD " + inventoryId + " est déjà loué. Veuillez en choisir un autre.", Toast.LENGTH_LONG).show());
-                        }
-                        else {
+                            Log.e("PanierDebug", "DVD " + inventoryId + " déjà loué !");
+                            runOnUiThread(() -> Toast.makeText(AfficherPanierActivity.this, "Le DVD " + " est déjà loué. Veuillez en choisir un autre.", Toast.LENGTH_LONG).show());
+                        } else {
                             Log.e("PanierDebug", "Erreur " + responseCode + " pour DVD " + inventoryId);
+                            runOnUiThread(() -> Toast.makeText(AfficherPanierActivity.this, "Erreur serveur pour le DVD " + inventoryId, Toast.LENGTH_SHORT).show());
                         }
+
                         conn.disconnect();
                     } catch (Exception e) {
                         Log.e("PanierDebug", "Erreur lors de l'appel pour DVD " + inventoryId, e);
@@ -118,7 +120,6 @@ public class AfficherPanierActivity extends AppCompatActivity {
                     public void run() {
                         PanierManager.getInstance().viderPanier();
                         afficherFilmsDansPanier();
-                        Toast.makeText(AfficherPanierActivity.this, "Panier validé !", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
