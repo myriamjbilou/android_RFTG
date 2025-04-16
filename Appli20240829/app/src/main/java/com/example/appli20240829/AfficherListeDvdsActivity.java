@@ -114,12 +114,14 @@ public class AfficherListeDvdsActivity extends AppCompatActivity {
                     int inventoryId = film.getInt("inventoryId");
                     String titre = film.getString("title");
                     String releaseYear = film.getString("releaseYear");
+                    String description = film.optString("description");
                     String rentalDuration = film.getString("rentalDuration");
 
                     Log.d("API_DEBUG", "Film " + i + " - inventoryId: " + inventoryId + ", titre: " + titre);
 
                     String dvdInfo = inventoryId + " - Titre : " + titre
                             + "\nAnnée : " + releaseYear
+                            + "\nDescription : " + description
                             + "\nDurée de location : " + rentalDuration;
                     listeDvds.add(dvdInfo);
                 }
